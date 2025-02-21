@@ -3,10 +3,11 @@ import styles from "./components/Site.module.css";
 import {Adidas} from "./components/pages/Adidas";
 import {Puma} from "./components/pages/Puma";
 import {Abibas} from "./components/pages/Abibas";
-import {Navigate, NavLink, Outlet, Route, Routes} from 'react-router-dom';
+import {Link, Navigate, NavLink, Outlet, Route, Routes, useNavigate} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
 import styled from 'styled-components';
 import {S} from './components/pages/_styles'
+
 import {Model} from "./components/pages/Model";
 import {Prices} from "./components/pages/Prices";
 
@@ -22,6 +23,10 @@ const PATH = {
 } as const
 
 function App() {
+	const navigate = useNavigate()
+	const navigateHadler = ( ) => {
+		navigate(-1)
+	}
     return (
         <div>
             <div className={styles.header}><h1>HEADER</h1></div>
@@ -35,6 +40,11 @@ function App() {
 				
                 </div>
                 <div className={styles.content}>
+					<div className={styles.HorizontalNavigation}>
+						<NavLink className={styles.LinkLikeButton} to={PATH.PAGE1}>main page</NavLink>
+						<button className={styles.ButtonLikeLink} onClick={navigateHadler}>НАЗАД</button>
+					</div>
+
 					<Outlet/>
 
                 </div>

@@ -29,6 +29,7 @@ const PATH = {
 	pageProtected: '/protectedPage',
 	error: '/error',
 	login: '/login',
+	main: '/'
 
 } as const
 
@@ -62,6 +63,12 @@ const publicRoutes:RouteObject[] = [
 		   {
             path: PATH.error,
             element: <Error404/>,
+			
+          },
+		   {
+            path: PATH.main,
+            // element: <Adidas/>,
+			element: <Navigate to='/adidas'/>
 			
           },
 ]
